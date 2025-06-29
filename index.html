@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athena Consultant - Elevate Your Great Ideas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f8f1e5 0%, #e8d9c5 100%);
+            color: #5a4a3a;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Layout container */
+        .container {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: row;
+        }
+
+        /* Left section (70%) */
+        .left-section {
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Right section (30%) */
+        .right-section {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            border-left: 1px solid rgba(90, 74, 58, 0.1);
+        }
+
+        /* Decorative elements */
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(60px);
+            opacity: 0.3;
+        }
+
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            background: #a78a6e;
+            top: 10%;
+            left: 10%;
+        }
+
+        .circle-2 {
+            width: 400px;
+            height: 400px;
+            background: #c4a77d;
+            bottom: 5%;
+            right: 30%;
+        }
+
+        /* Logo styling */
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+        }
+
+        .logo-img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 2rem;
+        }
+
+        .logo-subtitle {
+            font-size: 1.2rem;
+            color: #5a4a3a;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-top: 1rem;
+        }
+
+        /* Main content styling */
+        .quote-container {
+            padding: 2rem 0;
+            margin: 2rem 0;
+            width: 100%;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+        }
+
+        .quote {
+            font-size: 2.5rem;
+            font-weight: 600;
+            line-height: 1.4;
+            color: #5a4a3a;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Typing effect */
+        .typewriter {
+            display: inline-block;
+            position: relative;
+        }
+
+        .typewriter::after {
+            content: "|";
+            position: absolute;
+            right: -10px;
+            width: 5px;
+            color: #a78a6e;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Button styling */
+        .contact-btn {
+            background: linear-gradient(135deg, #a78a6e 0%, #8a6d4e 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(138, 109, 78, 0.4);
+            margin-top: 1.5rem;
+            text-decoration: none;
+            width: fit-content;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(138, 109, 78, 0.6);
+            background: linear-gradient(135deg, #b89a7e 0%, #9b7e5e 100%);
+        }
+
+        .contact-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 3px 10px rgba(138, 109, 78, 0.4);
+        }
+
+        /* Footer styling */
+        footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70%;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 1rem;
+            color: #8a6d4e;
+            border-top: 1px solid rgba(90, 74, 58, 0.2);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 1024px) {
+            .quote {
+                font-size: 2rem;
+            }
+
+            .logo-subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .left-section, .right-section {
+                width: 100%;
+                padding: 2rem;
+            }
+
+            .right-section {
+                padding: 3rem 2rem;
+                border-left: none;
+                border-top: 1px solid rgba(90, 74, 58, 0.1);
+            }
+
+            .quote {
+                font-size: 1.8rem;
+                min-height: 100px;
+            }
+
+            .logo-img {
+                max-width: 250px;
+            }
+
+            footer {
+                width: 100%;
+                position: relative;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .left-section, .right-section {
+                padding: 1.5rem;
+            }
+
+            .quote {
+                font-size: 1.5rem;
+                min-height: 80px;
+            }
+
+            .contact-btn {
+                padding: 0.8rem 1.8rem;
+                font-size: 1rem;
+            }
+
+            .logo-img {
+                max-width: 200px;
+            }
+
+            .logo-subtitle {
+                font-size: 0.9rem;
+            }
+
+            footer {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Decorative background elements -->
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+
+    <!-- Main container with two sections -->
+    <div class="container">
+        <!-- Left section (70%) -->
+        <div class="left-section">
+            <div class="quote-container">
+                <div class="quote">
+                    <span id="typewriter" class="typewriter"></span>
+                </div>
+            </div>
+
+            <a href="mailto:hi@athena-consultant.com" class="contact-btn">
+                <i class="fas fa-envelope"></i> Contact Us
+            </a>
+
+            <footer>
+                &copy; Copyright Athena Consultant 2025
+            </footer>
+        </div>
+
+        <!-- Right section (30%) -->
+        <div class="right-section">
+            <div class="logo-container">
+                <img src="logo.png" alt="Athena Consultant" class="logo-img">
+                <div class="logo-subtitle">Wait for Us!!!</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Quotes for the typewriter effect
+        const quotes = [
+            "Transforming vision into strategic excellence.",
+            "Your partner in business innovation and growth.",
+            "Ini Punya Ulfa Arofah bukan Ulpa Aropah.",
+            "Elevating ideas to exceptional realities.",
+            "Expert consulting for visionary businesses.",
+            "Turning potential into measurable success.",
+            "Where strategy meets transformative results."
+        ];
+
+        let currentQuoteIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
+
+        function typeQuote() {
+            const currentQuote = quotes[currentQuoteIndex];
+            const typewriterElement = document.getElementById('typewriter');
+
+            if (isDeleting) {
+                // Remove characters
+                typewriterElement.textContent = currentQuote.substring(0, charIndex - 1);
+                charIndex--;
+                typingSpeed = 50; // Faster when deleting
+            } else {
+                // Add characters
+                typewriterElement.textContent = currentQuote.substring(0, charIndex + 1);
+                charIndex++;
+                typingSpeed = charIndex === currentQuote.length ? 1500 : 100; // Pause at end
+            }
+
+            // Determine next action
+            if (!isDeleting && charIndex === currentQuote.length) {
+                // Pause at the end of the quote
+                isDeleting = true;
+                typingSpeed = 1500;
+            } else if (isDeleting && charIndex === 0) {
+                // Move to next quote
+                isDeleting = false;
+                currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+                typingSpeed = 500; // Pause before typing next
+            }
+
+            setTimeout(typeQuote, typingSpeed);
+        }
+
+        // Initialize the typing effect
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(typeQuote, 1000);
+        });
+    </script>
+</body>
+</html>
